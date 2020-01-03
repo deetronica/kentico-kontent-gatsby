@@ -5,6 +5,18 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+   {
+      resolve: `@kentico/gatsby-source-kontent`,
+        options: {
+          deliveryClientConfig: {
+            projectId: `ba2fe6fa-8ab8-002c-58aa-3c13d0789c29` // Fill in your Project ID
+          },
+          // Please note that with the Sample Project generated above, `en-US` is the default language for the project and this config. For a blank project, this needs to be `default`.
+          languageCodenames: [
+                    `en-US` // Or the languages in your project (Project settings -> Localization)
+          ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
