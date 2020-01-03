@@ -7,7 +7,7 @@ const Article = ({ data }) => {
   return (
     <Layout>
       <SEO title={item.title.value} description={item.meta_description.value} />
-      <h1>{item.title.value}</h1>
+      <h1>{item.title.value} TEST</h1>
       <div dangerouslySetInnerHTML={{ __html: item.body_copy.value }} />
     </Layout>
   )
