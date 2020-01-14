@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allKontentItemArticle {
         edges {
-          node { 
+          node {
             fields {
               slug
             }
@@ -44,9 +44,9 @@ exports.createPages = async ({ graphql, actions }) => {
       allKontentItemAboutUs {
         edges {
             node {
-            fields {
-                slug
-            }
+              fields {
+                  slug
+              }
             }
         }
       }
