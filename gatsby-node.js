@@ -4,71 +4,73 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
-
 const path = require(`path`)
+const _ = require(`lodash`);
+const kontentItemTypeIdentifier = `KontentItem`;
+const kontentColumnIndentifier = `OneColumnContent`;
+
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
-  if (node.internal.type === `KontentItemArticle`) {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: node.elements.url_pattern.value,
-    })
-  }
-  if (node.internal.type === `KontentItemAboutUs`) {
-    createNodeField({
-      node,
-      name: `slug`,
-      value: node.elements.url_pattern.value,
-    })
+  if (_.has(node, `internal.type`) && _.isString(node.internal.type) && node.internal.type.startsWith(kontentItemTypeIdentifier)) {
+    if (node.internal.type.includes('Column')) {
+      createNodeField({
+        node,
+        name: `name`,
+        value: node.elements.page_name.value
+      });
+
+      createNodeField({
+        node,
+        name: `slug`,
+        value: node.elements.url.value
+      });
+    }
   }
 }
+
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  // Query data from Kentico
-  const resultArticle = await graphql(`
+  const { createPage } = actions;
+
+  const resultContent = await graphql(`
     {
-      allKontentItemArticle {
+      allKontentItem {
         edges {
           node {
-            fields {
-              slug
+            id
+            ... on KontentItemOneColumnContent {
+              fields {
+                name
+                slug
+              }
+            }
+            ... on KontentItemTwoColumnContent {
+              fields {
+                name
+                slug
+              }
+            }
+            ... on KontentItemThreeColumnContent {
+              fields {
+                name
+                slug
+              }
             }
           }
         }
       }
     }
   `)
-  const resultAbout = await graphql(`
-    {
-      allKontentItemAboutUs {
-        edges {
-            node {
-              fields {
-                  slug
-              }
-            }
-        }
-      }
+
+  resultContent.data.allKontentItem.edges.forEach(({ node }) => {
+    if (node.fields.name && node.fields.slug && node.id) {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(`src/templates/content.js`),
+        context: {
+          slug: node.fields.slug,
+          name: node.fields.name,
+          id: node.id
+        },
+      })
     }
-  `)
-  // Create pages
-  resultArticle.data.allKontentItemArticle.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`src/templates/article.js`),
-      context: {
-        slug: node.fields.slug,
-      },
-    })
-  })
-  resultAbout.data.allKontentItemAboutUs.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`src/templates/about.js`),
-      context: {
-        slug: node.fields.slug,
-      },
-    })
   })
 }
