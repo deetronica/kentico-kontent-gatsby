@@ -8,13 +8,15 @@ import SEO from "../components/seo"
 export default ({ data }) => {
   const itemEdges = data.allKontentItem.edges;
   const edges = itemEdges.map(({node}) => {
-    return (
-      <li key={node.id}>
-        <Link to={node.elements.url.value}>
-          {node.elements.page_name.value}
-        </Link>
-      </li>
-    );
+    if (node.elements) {
+      return (
+        <li key={node.id}>
+          <Link to={node.elements.url.value}>
+            {node.elements.page_name.value}
+          </Link>
+        </li>
+      );
+    }
   });
 
   return (
