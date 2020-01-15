@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   resultContent.data.allKontentItem.edges.forEach(({ node }) => {
-    if (node.fields.name && node.fields.slug && node.id) {
+    if (node.fields && node.fields.name !== null && node.fields.slug !== null && node.id !== null) {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`src/templates/content.js`),
