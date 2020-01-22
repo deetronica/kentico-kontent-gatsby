@@ -7,7 +7,6 @@
 const path = require(`path`)
 const _ = require(`lodash`);
 const kontentItemTypeIdentifier = `KontentItem`;
-const kontentColumnIndentifier = `OneColumnContent`;
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   if (_.has(node, `internal.type`) && _.isString(node.internal.type) && node.internal.type.startsWith(kontentItemTypeIdentifier)) {
@@ -30,7 +29,7 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const resultContent = await graphql(`
+  const contentPages = await graphql(`
     {
       allKontentItem {
         edges {
@@ -60,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  resultContent.data.allKontentItem.edges.forEach(({ node }) => {
+  contentPages.data.allKontentItem.edges.forEach(({ node }) => {
     if (node.fields && node.fields.name !== null && node.fields.slug !== null && node.id !== null) {
       createPage({
         path: node.fields.slug,

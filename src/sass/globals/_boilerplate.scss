@@ -68,7 +68,7 @@ textarea { resize:vertical; }
 .align-right { text-align:right; }
 .align-left { text-align:left; }
 
-@media (min-width: $bp-mw) {
+@media (min-width: $bp-l) {
 	.dsk-only { display: block !important;	}
 	.dsk-only-inline { display: inline !important;	}
 	.dsk-only-flex { display: flex !important;	}
