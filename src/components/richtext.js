@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import get from 'lodash/get';
 import parseHTML from 'html-react-parser';
 
+import { Link } from "gatsby"
 import LinkedItem from './linked-items';
 
 class Richtext extends Component {
@@ -13,7 +14,7 @@ class Richtext extends Component {
     this.linkedItems = this.props.linkedItems;
     this.html = this.props.content.replace(/(\n|\r)+/, '');
   }
-  /** Check if DOM node is a Kentico Cloud inline asset. */
+  /** Check if DOM node is a Kentico Kontent inline asset. */
   isAsset(domNode) {
     return (
       domNode.name === 'figure' &&
@@ -21,13 +22,13 @@ class Richtext extends Component {
       domNode.attribs['data-asset-id']
     );
   }
-  /** Check if DOM node is a Kentico Cloud inline link. */
+  /** Check if DOM node is a Kentico Kontent inline link. */
   isLink(domNode) {
     return (
       domNode.name === 'a' && domNode.attribs && domNode.attribs['data-item-id']
     );
   }
-  /** Check if DOM node is a Kentico Cloud inline content item. */
+  /** Check if DOM node is a Kentico Kontent inline content item. */
   isLinkedItem(domNode) {
     return (
       domNode.name === 'p' &&
@@ -35,7 +36,7 @@ class Richtext extends Component {
       domNode.attribs.type === 'application/kenticocloud'
     );
   }
-  /** Get ID for Kentico Cloud inline asset from DOM node. */
+  /** Get ID for Kentico Kontent inline asset from DOM node. */
   getAssetId(domNode) {
     return get(domNode, 'attribs["data-asset-id"]') || null;
   }
@@ -46,23 +47,23 @@ class Richtext extends Component {
       return undefined;
     }
   }
-  /** Get code name for Kentico Cloud inline content item from DOM node. */
+  /** Get code name for Kentico Kontent inline content item from DOM node. */
   getCodeName(domNode) {
     return get(domNode, 'attribs["data-codename"]') || null;
   }
-  /** Get data for Kentico Cloud inline link. */
+  /** Get data for Kentico Kontent inline link. */
   getLink(id, links) {
     return links.find(link => link.linkId === id);
   }
-  /** Get content for Kentico Cloud inline link from DOM node. */
+  /** Get content for Kentico Kontent inline link from DOM node. */
   getLinkContent(domNode) {
     return get(domNode, 'children[0].data') || null;
   }
-  /** Get data for Kentico Cloud inline content item. */
+  /** Get data for Kentico Kontent inline content item. */
   getLinkedItem(codename, linkedItems) {
     return linkedItems.find(item => item.system.codename === codename);
   }
-  /** Get ID for Kentico Cloud inline link from DOM node. */
+  /** Get ID for Kentico Kontent inline link from DOM node. */
   getLinkId(domNode) {
     return get(domNode, 'attribs["data-item-id"]') || null;
   }
@@ -81,7 +82,7 @@ class Richtext extends Component {
       const content = this.getLinkContent(domNode);
       const id = this.getLinkId(domNode);
       const link = this.getLink(id, links);
-      return <div><a href={link.urlSlug}>{content}</a></div>;
+      return <Link to={link.urlSlug}>{content}</Link>;
     }
     // Replace inline linked items.
     if (this.isLinkedItem(domNode)) {
