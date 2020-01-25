@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Richtext from "../components/richtext"
+import KontentResolver from '../components/KontentResolver';
 
 export default ({ data }) => {
   const item = data.kontentItem.elements;
@@ -20,13 +21,7 @@ export default ({ data }) => {
       <p>URL: {item.url.value}</p>
       <hr />
       <p>Body copy:</p>
-      <div dangerouslySetInnerHTML={{ __html: item.main_body_copy.value }} />
-      <Richtext 
-        content={content}
-        linkedImages={images}
-        linkedLinks={links}
-        linkedItems={contentItems}
-      />
+      <KontentResolver content={item.main_body_copy.value} />
     </Layout>
   );
 }
