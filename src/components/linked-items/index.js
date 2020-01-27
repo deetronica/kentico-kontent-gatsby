@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import Briefings from './briefings';
+import Listing from './listing';
 
 class LinkedItem extends Component {
   constructor(props) {
@@ -14,6 +15,9 @@ class LinkedItem extends Component {
     switch (this.linkedItem.system.type) {
       case 'briefings':
         return <Briefings linkedItem={this.linkedItem} />
+      
+      case 'listing':
+        return <Listing linkedItem={this.linkedItem} />
     
       default:
         return null;
@@ -28,6 +32,9 @@ export const LinkedItemsFragment = graphql`
   fragment LinkedItemsFragment on Node {
     ... on KontentItemBriefings {
       ...KontentItemBriefingsFragment
+    }
+    ... on KontentItemListing {
+      ...KontentItemListingFragment
     }
   }
 `;
