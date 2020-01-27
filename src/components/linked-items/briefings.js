@@ -14,8 +14,6 @@ class Briefings extends Component {
     this.images = this.linkedItem.elements.body_copy.images;
     this.links = this.linkedItem.elements.body_copy.links;
   }
-  
-  
 
   render(){
 
@@ -34,6 +32,7 @@ class Briefings extends Component {
 }
 
 export default Briefings
+
 
 export const KontentItemBriefingsFragment = graphql`
   fragment KontentItemBriefingsFragment on KontentItemBriefings {
