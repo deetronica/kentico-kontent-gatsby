@@ -21,7 +21,7 @@ class Briefings extends Component {
       <div class="briefing-container">
         <div>This is a briefing!!</div>
         <div>{this.heading}</div>
-        <Richtext 
+        <Richtext
           content={this.content}
           linkedImages={this.images}
           linkedLinks={this.links}
@@ -41,7 +41,7 @@ export const KontentItemBriefingsFragment = graphql`
       type
     }
     elements {
-      body_copy {
+      main_body_copy {
         value
         resolvedData {
           html
@@ -73,7 +73,7 @@ export const KontentItemBriefingsFragment = graphql`
       short_desc_ {
         value
       }
-      untitled_url_slug {
+      url {
         value
       }
     }
