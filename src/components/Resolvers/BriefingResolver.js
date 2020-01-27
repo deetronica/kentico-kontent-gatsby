@@ -6,7 +6,7 @@ export default ({ node }) => {
   return (
     <>
       <h2>{node.elements.briefing_name.value}</h2>
-      <KontentResolver content={node.elements.body_copy.value} />
+      <KontentResolver content={node.elements.main_body_copy.value} />
     </>
   )
 }
@@ -15,7 +15,7 @@ export const query = graphql`
   fragment BriefingResolverQuery on KontentItem {
     ... on KontentItemBriefings {
       elements {
-        untitled_url_slug {
+        url {
           value
         }
         short_desc_ {
@@ -32,7 +32,7 @@ export const query = graphql`
             url
           }
         }
-        body_copy {
+        main_body_copy {
           value
         }
       }

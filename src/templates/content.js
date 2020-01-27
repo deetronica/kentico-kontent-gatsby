@@ -2,23 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Richtext from "../components/richtext"
 import KontentResolver from '../components/KontentResolver';
 
 export default ({ data }) => {
   const item = data.kontentItem.elements;
-  const content = item.main_body_copy.resolvedData.html;
-  const images = item.main_body_copy.images;
-  const links = item.main_body_copy.links;
-  const contentItems = item.main_body_copy.linked_items;
 
   return (
     <Layout>
+      <SEO title={item.page_name.value} />
       <h1>Page name: {item.page_name.value}</h1>
       <hr/>
       <p>Page name (h1): {item.page_heading__h1_.value}</p>
       <hr />
-      <p>URL: {item.url.value}</p>
+      <p>URL: /{item.url.value}</p>
       <hr />
       <p>Body copy:</p>
       <KontentResolver content={item.main_body_copy.value} />
