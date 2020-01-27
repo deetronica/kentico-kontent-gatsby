@@ -62,8 +62,9 @@ export default props => (
         allKontentItem {
           edges {
             node {
-              ...BriefingResolverQuery
               ...LinkResolverQuery
+              ...BriefingResolverQuery
+              ...SpeechesResolverQuery
               system {
                 id
                 codename
