@@ -33,6 +33,7 @@ class Briefings extends Component {
 
 export default Briefings
 
+
 export const KontentItemBriefingsFragment = graphql`
   fragment KontentItemBriefingsFragment on KontentItemBriefings {
     system {
