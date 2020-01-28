@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Item from "../Item";
+import Item from "../../Temp/Item";
 
 export default ({ data, node }) => {
   const name = node?.elements?.listing_type?.value?.[0]?.name;
