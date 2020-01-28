@@ -30,8 +30,12 @@ export default ({ data, node }) => {
         image_url = node?.elements?.briefing_image?.value?.[0]?.url
         key = node.id ?? index
         break
-      default:
-        return null
+      case "speeches":
+        title = node?.elements?.speech_headline_h1?.value
+        desc = node?.elements?.by_line?.value
+        url = node?.elements?.url?.value
+        key = node.id ?? index
+        break
     }
 
     return (
@@ -42,6 +46,7 @@ export default ({ data, node }) => {
         desc={desc}
         link={url}
         image_url={image_url}
+        image_desc={image_desc}
       />
     )
   })
