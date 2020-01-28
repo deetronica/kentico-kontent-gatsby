@@ -25,6 +25,8 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.3",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -46,5 +48,16 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    ".{js,jsx}": [
+      "npm run format",
+      "git add"
+    ]
   }
 }
