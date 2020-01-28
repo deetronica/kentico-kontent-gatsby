@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@kentico/gatsby-source-kontent": "^4.0.0",
+    "@kentico/gatsby-source-kontent": "^4.3.0",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-manifest": "^2.2.31",
@@ -17,7 +17,7 @@
     "gatsby-transformer-sharp": "^2.3.7",
     "html-react-parser": "^0.9.1",
     "lodash": "^4.17.15",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
