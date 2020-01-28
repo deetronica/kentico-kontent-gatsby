@@ -14,6 +14,7 @@ export default ({ node }) => {
 export const query = graphql`
   fragment BriefingResolverQuery on KontentItem {
     ... on KontentItemBriefings {
+      id
       elements {
         url {
           value

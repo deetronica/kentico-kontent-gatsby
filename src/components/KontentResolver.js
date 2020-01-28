@@ -65,6 +65,7 @@ export default props => (
               ...LinkResolverQuery
               ...BriefingResolverQuery
               ...SpeechesResolverQuery
+              ...ListingResolverQuery
               system {
                 id
                 codename
