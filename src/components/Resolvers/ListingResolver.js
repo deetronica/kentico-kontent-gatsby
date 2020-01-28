@@ -1,16 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Item from "../Item";
+import Item from "../Item"
 
 export default ({ data, node }) => {
   const name = node?.elements?.listing_type?.value?.[0]?.name
   const codename = node?.elements?.listing_type?.value?.[0]?.codename
-  const count = node?.elements?.listing_count?.value ?? 10
+  const count = node?.elements?.listing_count?.value ?? 100
 
   // Find all Kontent items that matches the codename type
-  const items = data.allKontentItem.edges.filter(edge => {
-    return edge?.node?.system?.type === codename
-  })
+  let items = data.allKontentItem.edges
+    .filter(edge => {
+      return edge?.node?.system?.type === codename
+    })
+    .slice(0, count)
 
   // If an error happened or no items found return message
   if (items?.length <= 0) return <div>No results found</div>
@@ -32,19 +34,19 @@ export default ({ data, node }) => {
         return null
     }
 
-    return <Item
-      key={key}
-      title={title}
-      type={name}
-      desc={desc}
-      link={url}
-      image_url={image_url}
-    />
+    return (
+      <Item
+        key={key}
+        title={title}
+        type={name}
+        desc={desc}
+        link={url}
+        image_url={image_url}
+      />
+    )
   })
 
-  return (
-    <ul className="listing">{list}</ul>
-  )
+  return <ul className="listing">{list}</ul>
 }
 
 export const query = graphql`
