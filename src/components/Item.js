@@ -12,7 +12,12 @@ const Item = props => {
       <div className="li-content">
         {props.type && <strong className="li-meta">{props.type}</strong>}
         <h3 className="li-title">{props.title}</h3>
-        {props.desc && <div className="li-desc">{props.desc}</div>}
+        {props.desc && (
+          <div
+            className="li-desc"
+            dangerouslySetInnerHTML={{ __html: props.desc }}
+          ></div>
+        )}
         {props.link && (
           <Link to={props.link} aria-label={`Read more about ${props.title}`}>
             Read More

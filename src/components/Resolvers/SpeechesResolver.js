@@ -14,6 +14,7 @@ export default ({ node }) => {
 export const query = graphql`
   fragment SpeechesResolverQuery on KontentItem {
     ... on KontentItemSpeeches {
+      id
       elements {
         youtube_link {
           value
