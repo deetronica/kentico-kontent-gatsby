@@ -4,9 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require(`path`)
-const _ = require(`lodash`)
-const kontentItemTypeIdentifier = "KontentItem"
+const path = require(`path`);
+const _ = require(`lodash`);
+const kontentItemTypeIdentifier = "KontentItem";
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   if (
@@ -19,19 +19,19 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
         node,
         name: `name`,
         value: node.elements.page_name.value,
-      })
+      });
 
       createNodeField({
         node,
         name: `slug`,
         value: node.elements.url.value,
-      })
+      });
     }
   }
-}
+};
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const contentPages = await graphql(`
     {
@@ -61,7 +61,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   contentPages.data.allKontentItem.edges.forEach(({ node }) => {
     if (
@@ -78,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
           name: node.fields.name,
           id: node.id,
         },
-      })
+      });
     }
-  })
-}
+  });
+};

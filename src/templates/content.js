@@ -1,8 +1,8 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import KontentResolver from '../components/KontentResolver';
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import SEO from "../components/Seo";
+import KontentResolver from "../components/KontentResolver";
 
 export default ({ data }) => {
   const item = data.kontentItem.elements;
@@ -11,7 +11,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={item.page_name.value} />
       <h1>Page name: {item.page_name.value}</h1>
-      <hr/>
+      <hr />
       <p>Page name (h1): {item.page_heading__h1_.value}</p>
       <hr />
       <p>URL: /{item.url.value}</p>
@@ -20,7 +20,7 @@ export default ({ data }) => {
       <KontentResolver content={item.main_body_copy.value} />
     </Layout>
   );
-}
+};
 
 export const query = graphql`
   query contentQuery($id: String!) {
@@ -48,9 +48,6 @@ export const query = graphql`
               linkId
               type
               urlSlug
-            }
-            linked_items {
-              ...LinkedItemsFragment
             }
           }
           url {
@@ -82,9 +79,6 @@ export const query = graphql`
               type
               urlSlug
             }
-            linked_items {
-              ...LinkedItemsFragment
-            }
           }
           url {
             value
@@ -115,9 +109,6 @@ export const query = graphql`
               type
               urlSlug
             }
-            linked_items {
-              ...LinkedItemsFragment
-            }
           }
           url {
             value
@@ -126,4 +117,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

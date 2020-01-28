@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 const Item = props => {
   return (
@@ -25,7 +25,7 @@ const Item = props => {
         )}
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default Item
+export default Item;

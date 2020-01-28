@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql } from "gatsby"
-import KontentResolver from "../KontentResolver"
+import React from "react";
+import { graphql } from "gatsby";
+import KontentResolver from "../KontentResolver";
 
 export default ({ node }) => {
   return (
@@ -8,8 +8,8 @@ export default ({ node }) => {
       <h2>{node.elements.briefing_name.value}</h2>
       <KontentResolver content={node.elements.main_body_copy.value} />
     </>
-  )
-}
+  );
+};
 
 export const query = graphql`
   fragment BriefingResolverQuery on KontentItem {
@@ -39,4 +39,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

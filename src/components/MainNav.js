@@ -1,5 +1,5 @@
-import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import React from "react";
+import { useStaticQuery, Link, graphql } from "gatsby";
 
 const MainNav = () => {
   const data = useStaticQuery(graphql`
@@ -39,41 +39,33 @@ const MainNav = () => {
         }
       }
     }
-  `)
-  const navItems = data.kontentItemMainNavigation.elements.navigation_items.linked_items;
-  
-  function getLink(link){
-    return(
-      <Link to={link.elements.url.value}>
-        {link.elements.title.value}
-      </Link>
-    )
+  `);
+  const navItems =
+    data.kontentItemMainNavigation.elements.navigation_items.linked_items;
+
+  function getLink(link) {
+    return (
+      <Link to={link.elements.url.value}>{link.elements.title.value}</Link>
+    );
   }
 
-  const navHolder = navItems.map((link) => {
+  const navHolder = navItems.map(link => {
     if (link.elements) {
       return (
         <li key={link.id}>
           {getLink(link)}
-          {
-            link.elements.subitems != null &&
+          {link.elements.subitems != null && (
             <ul>
-              {link.elements.subitems.linked_items.map((link) => {
-                return(
-                  <li key={link.id}>
-                    {getLink(link)}
-                  </li>
-                )
+              {link.elements.subitems.linked_items.map(link => {
+                return <li key={link.id}>{getLink(link)}</li>;
               })}
             </ul>
-          }
+          )}
         </li>
       );
     }
   });
-  return (
-    <ul>{navHolder}</ul>
-  )
-}
+  return <ul>{navHolder}</ul>;
+};
 
-export default MainNav
+export default MainNav;

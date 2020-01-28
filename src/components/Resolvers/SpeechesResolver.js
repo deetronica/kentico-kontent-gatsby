@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql } from "gatsby"
-import KontentResolver from "../KontentResolver"
+import React from "react";
+import { graphql } from "gatsby";
+import KontentResolver from "../KontentResolver";
 
 export default ({ node }) => {
   return (
@@ -8,8 +8,8 @@ export default ({ node }) => {
       <h2>{node.elements.speech_name.value}</h2>
       <KontentResolver content={node.elements.full_body___transcript.value} />
     </>
-  )
-}
+  );
+};
 
 export const query = graphql`
   fragment SpeechesResolverQuery on KontentItem {
@@ -37,4 +37,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

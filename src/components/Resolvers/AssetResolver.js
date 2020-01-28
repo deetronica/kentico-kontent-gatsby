@@ -1,3 +1,3 @@
-import React from "react"
+import React from "react";
 
-export default ({ domNode }) => <img {...domNode?.children?.[0].attribs} />
+export default ({ domNode }) => <img {...domNode?.children?.[0].attribs} />;

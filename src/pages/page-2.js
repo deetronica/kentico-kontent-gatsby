@@ -1,14 +1,16 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
     <h1>Grid examples</h1>
-    <p><Link to="/">Go back to the homepage</Link></p>
+    <p>
+      <Link to="/">Go back to the homepage</Link>
+    </p>
     <div className="grid-example">
       <div className="row">
         <div className="col">One column content</div>
@@ -24,6 +26,6 @@ const SecondPage = () => (
       </div>
     </div>
   </Layout>
-)
+);
 
-export default SecondPage
+export default SecondPage;

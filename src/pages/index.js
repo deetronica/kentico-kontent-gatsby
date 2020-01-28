@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import Item from "../components/Item"
+import React from "react";
+import { Link } from "gatsby";
+import Layout from "../components/layout";
+import Image from "../components/image";
+import SEO from "../components/seo";
+import Item from "../components/Item";
 
 export default ({ data }) => {
-  const itemEdges = data.allKontentItem.edges
+  const itemEdges = data.allKontentItem.edges;
   const edges = itemEdges.map(({ node }) => {
     if (node.elements && node.id) {
       return (
@@ -21,9 +21,9 @@ export default ({ data }) => {
           desc={node.elements.short_desc_?.value}
           link={node.elements.url?.value}
         />
-      )
+      );
     }
-  })
+  });
 
   return (
     <Layout>
@@ -37,8 +37,8 @@ export default ({ data }) => {
       </div>
       <Link to="/page-2/">Grid example</Link>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query homepageContentQuery {
@@ -102,4 +102,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
