@@ -1,7 +1,7 @@
 import React from "react";
-import Layout from "../components/Temp/Layout";
-import SEO from "../components/Temp/Seo";
-import KontentResolver from "../components/Temp/KontentResolver";
+import Layout from "../components/Layout";
+import SEO from "../components/Seo";
+import KontentResolver from "../components/KontentResolver";
 
 export default ({ pageContext }) => {
   return (

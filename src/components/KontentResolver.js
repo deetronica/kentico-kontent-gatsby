@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import parse from "html-react-parser";
-import Resolvers from "../Resolvers/Temp";
-import LinkResolver from "../Resolvers/Temp/LinkResolver";
-import AssetResolver from "../Resolvers/Temp/AssetResolver";
+import Resolvers from "./Resolvers";
+import LinkResolver from "./Resolvers/LinkResolver";
+import AssetResolver from "./Resolvers/AssetResolver";
 
 class KontentResolver extends Component {
   constructor(props) {

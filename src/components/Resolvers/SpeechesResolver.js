@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import KontentResolver from "../../Temp/KontentResolver";
+import KontentResolver from "../KontentResolver";
 
 export default ({ node }) => {
   return (

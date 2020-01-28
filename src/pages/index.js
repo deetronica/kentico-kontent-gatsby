@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
-import Layout from "../components/Temp/Layout";
-import Image from "../components/Temp/Image";
-import SEO from "../components/Temp/Seo";
-import Item from "../components/Temp/Item";
+import Layout from "../components/Layout";
+import Image from "../components/Image";
+import SEO from "../components/Seo";
+import Item from "../components/Item";
 
 export default ({ data }) => {
   const itemEdges = data.allSitePage.edges;
