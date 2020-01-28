@@ -1,0 +1,112 @@
+$slide-gutter: 0.2em;
+
+.a11y-slider-container {
+    margin: 0 0 4em;
+}
+
+.slider { 
+    @extend .a11y-slider;
+    display: flex;
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+
+    li {
+        display: block;
+        padding: 0 $slide-gutter;
+        margin: 0;
+        font-weight: bold;
+        font-size: 3em;
+        flex: 1 0 auto;
+        width: 100%;
+
+        div {
+            background: _palette(fg);
+            color: _palette(bg);
+            padding: 1em 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    }
+}
+
+.a11y-slider-next {
+    float: right;
+}
+
+.a11y-slider-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: block;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        margin: 0 6px;
+        color: #fff;
+
+        button {
+            display: block;
+            font-size: 0;
+            text-indent: -9999px;
+            border: 1px solid currentColor !important;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+
+            &:hover,
+            &:focus {
+                background: currentColor;
+            }
+
+            &.active {
+                background: currentColor;
+            }
+        }
+    }
+}
+
+[data-autoplaying] {
+    margin-left: 1em;
+    white-space: normal;
+
+    &:hover::after,
+    &:focus::after {
+        opacity: 1;
+    }
+
+    &::after {
+        position: static;
+        font-size: 0.7em;
+        transform: none;
+        opacity: 1;
+        background: none;
+    }
+
+    &[data-autoplaying="true"]::after {
+        content: " (Playing)";
+    }
+
+    &[data-autoplaying="false"]::after {
+        content: " (Paused)";
+    }
+}
+
+@media (min-width: $bp-m) {
+    .a11y-slider-next,
+    .a11y-slider-prev,
+    .a11y-slider-autoplay {
+        display: block;
+        float: none;
+        width: 100%;
+        margin: 0 0 10px;
+        height: auto;
+    }
+}
