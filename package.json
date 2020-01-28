@@ -55,9 +55,6 @@
     }
   },
   "lint-staged": {
-    ".{js,jsx}": [
-      "npm run format",
-      "git add"
-    ]
+    "*.{js,jsx,json,md}": "prettier --write"
   }
 }
