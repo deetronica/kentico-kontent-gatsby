@@ -6,20 +6,16 @@ import SEO from "../components/seo";
 import Item from "../components/Item";
 
 export default ({ data }) => {
-  const itemEdges = data.allKontentItem.edges;
+  const itemEdges = data.allSitePage.edges;
   const edges = itemEdges.map(({ node }) => {
-    if (node.elements && node.id) {
+    if (node?.context && node?.context?.id) {
       return (
         <Item
-          key={node.id}
-          title={
-            node.elements.page_name?.value ??
-            node.elements.briefing_name?.value ??
-            "Untitled"
-          }
-          type={node.system?.type}
-          desc={node.elements.short_desc_?.value}
-          link={node.elements.url?.value}
+          key={node?.context?.id}
+          title={node?.context?.name}
+          type={node?.context?.type}
+          desc={node?.context?.content}
+          link={node?.context?.url}
         />
       );
     }
@@ -42,61 +38,15 @@ export default ({ data }) => {
 
 export const query = graphql`
   query homepageContentQuery {
-    allKontentItem {
+    allSitePage {
       edges {
         node {
-          ... on KontentItemOneColumnContent {
+          context {
+            content
+            name
+            type
+            url
             id
-            elements {
-              page_name {
-                value
-              }
-              url {
-                value
-              }
-            }
-          }
-          ... on KontentItemTwoColumnContent {
-            id
-            elements {
-              page_name {
-                value
-              }
-              url {
-                value
-              }
-            }
-          }
-          ... on KontentItemThreeColumnContent {
-            id
-            elements {
-              page_name {
-                value
-              }
-              url {
-                value
-              }
-            }
-          }
-          ... on KontentItemBriefings {
-            id
-            elements {
-              main_body_copy {
-                value
-              }
-              briefing_name {
-                value
-              }
-              short_desc_ {
-                value
-              }
-              url {
-                value
-              }
-            }
-            system {
-              type
-            }
           }
         }
       }

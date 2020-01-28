@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import parse from "html-react-parser";
 import Resolvers from "./Resolvers";
 import LinkResolver from "./Resolvers/LinkResolver";

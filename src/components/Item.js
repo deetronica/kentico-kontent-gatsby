@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import truncate from "truncate-html";
 
 const Item = props => {
   return (
@@ -15,7 +16,12 @@ const Item = props => {
         {props.desc && (
           <div
             className="li-desc"
-            dangerouslySetInnerHTML={{ __html: props.desc }}
+            dangerouslySetInnerHTML={{
+              __html: truncate(props.desc, 100, {
+                byWords: true,
+                excludes: ["img", "figure", "ul"],
+              }),
+            }}
           ></div>
         )}
         {props.link && (
