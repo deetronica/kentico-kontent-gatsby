@@ -1,0 +1,27 @@
+.banner-item {
+    display: flex;
+    background-color: #E5E5E5;
+}
+
+.banner-img {
+    width: 66%;
+    flex: 0 0 auto;
+}
+
+.banner-content {
+    flex: 1 1 auto;
+}
+
+.banner-title {
+	font-weight: bold;
+	font-size: 1.125em;
+	color: #000;
+	margin: 35px 0 10px 0;
+}
+
+.banner-desc {
+	font-size: 1.125em;
+	color: #555555;
+	line-height: 1.35em;
+	margin-bottom: 30px;
+}
