@@ -6,8 +6,6 @@ import SEO from "../components/seo"
 import Item from "../components/Item"
 
 export default ({ data }) => {
-  console.log(data)
-
   const itemEdges = data.allKontentItem.edges
   const edges = itemEdges.map(({ node }) => {
     if (node.elements && node.id) {

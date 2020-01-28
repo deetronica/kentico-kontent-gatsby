@@ -5,29 +5,33 @@
  */
 
 const path = require(`path`)
-const _ = require(`lodash`);
-const kontentItemTypeIdentifier = `KontentItem`;
+const _ = require(`lodash`)
+const kontentItemTypeIdentifier = "KontentItem"
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
-  if (_.has(node, `internal.type`) && _.isString(node.internal.type) && node.internal.type.startsWith(kontentItemTypeIdentifier)) {
-    if (node.internal.type.includes('Column')) {
+  if (
+    _.has(node, `internal.type`) &&
+    _.isString(node.internal.type) &&
+    node.internal.type.startsWith(kontentItemTypeIdentifier)
+  ) {
+    if (node.internal.type.includes("Column")) {
       createNodeField({
         node,
         name: `name`,
-        value: node.elements.page_name.value
-      });
+        value: node.elements.page_name.value,
+      })
 
       createNodeField({
         node,
         name: `slug`,
-        value: node.elements.url.value
-      });
+        value: node.elements.url.value,
+      })
     }
   }
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   const contentPages = await graphql(`
     {
@@ -60,14 +64,19 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   contentPages.data.allKontentItem.edges.forEach(({ node }) => {
-    if (node.fields && node.fields.name !== null && node.fields.slug !== null && node.id !== null) {
+    if (
+      node.fields &&
+      node.fields.name !== null &&
+      node.fields.slug !== null &&
+      node.id !== null
+    ) {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`src/templates/content.js`),
         context: {
           slug: node.fields.slug,
           name: node.fields.name,
-          id: node.id
+          id: node.id,
         },
       })
     }
