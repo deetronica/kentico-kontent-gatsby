@@ -1,129 +1,18 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import KontentResolver from '../components/KontentResolver';
+import React from "react";
+import Layout from "../components/Layout";
+import SEO from "../components/Seo";
+import KontentResolver from "../components/KontentResolver";
 
-export default ({ data }) => {
-  const item = data.kontentItem.elements;
-
+export default ({ pageContext }) => {
   return (
     <Layout>
-      <SEO title={item.page_name.value} />
-      <h1>Page name: {item.page_name.value}</h1>
-      <hr/>
-      <p>Page name (h1): {item.page_heading__h1_.value}</p>
+      <SEO title={pageContext.name} />
+      <h1>Page name: {pageContext.name}</h1>
       <hr />
-      <p>URL: /{item.url.value}</p>
+      <p>URL: /{pageContext.url}</p>
       <hr />
       <p>Body copy:</p>
-      <KontentResolver content={item.main_body_copy.value} />
+      <KontentResolver content={pageContext.content} />
     </Layout>
   );
-}
-
-export const query = graphql`
-  query contentQuery($id: String!) {
-    kontentItem(id: { eq: $id }) {
-      ... on KontentItemOneColumnContent {
-        elements {
-          page_name {
-            value
-          }
-          page_heading__h1_ {
-            value
-          }
-          main_body_copy {
-            value
-            resolvedData {
-              html
-            }
-            images {
-              imageId
-              description
-              url
-            }
-            links {
-              codename
-              linkId
-              type
-              urlSlug
-            }
-            linked_items {
-              ...LinkedItemsFragment
-            }
-          }
-          url {
-            value
-          }
-        }
-      }
-      ... on KontentItemTwoColumnContent {
-        elements {
-          page_name {
-            value
-          }
-          page_heading__h1_ {
-            value
-          }
-          main_body_copy {
-            value
-            resolvedData {
-              html
-            }
-            images {
-              imageId
-              description
-              url
-            }
-            links {
-              codename
-              linkId
-              type
-              urlSlug
-            }
-            linked_items {
-              ...LinkedItemsFragment
-            }
-          }
-          url {
-            value
-          }
-        }
-      }
-      ... on KontentItemThreeColumnContent {
-        elements {
-          page_name {
-            value
-          }
-          page_heading__h1_ {
-            value
-          }
-          main_body_copy {
-            value
-            resolvedData {
-              html
-            }
-            images {
-              imageId
-              description
-              url
-            }
-            links {
-              codename
-              linkId
-              type
-              urlSlug
-            }
-            linked_items {
-              ...LinkedItemsFragment
-            }
-          }
-          url {
-            value
-          }
-        }
-      }
-    }
-  }
-`
+};

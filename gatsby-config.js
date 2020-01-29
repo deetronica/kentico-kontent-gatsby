@@ -5,17 +5,17 @@ module.exports = {
     author: `americaneagle.com`,
   },
   plugins: [
-   {
+    {
       resolve: `@kentico/gatsby-source-kontent`,
-        options: {
-          deliveryClientConfig: {
-            projectId: `ab77c37d-55d0-006d-648a-a2f8a62d4bc0` // Fill in your Project ID
-          },
-          // Please note that with the Sample Project generated above, `en-US` is the default language for the project and this config. For a blank project, this needs to be `default`.
-          languageCodenames: [
-                    `default` // Or the languages in your project (Project settings -> Localization)
-          ]
-      }
+      options: {
+        deliveryClientConfig: {
+          projectId: `ab77c37d-55d0-006d-648a-a2f8a62d4bc0`, // Fill in your Project ID
+        },
+        // Please note that with the Sample Project generated above, `en-US` is the default language for the project and this config. For a blank project, this needs to be `default`.
+        languageCodenames: [
+          `default`, // Or the languages in your project (Project settings -> Localization)
+        ],
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
@@ -44,4 +44,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
-}
+};
