@@ -4,24 +4,13 @@ import React from "react";
 
 import MainNav from "./MainNav";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+const Header = props => (
+  <header className="site-header">
     <div className="container">
       <div className="row">
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            {siteTitle}
+        <h1>
+          <Link to="/">
+            <img src={props.logo} alt={props.siteTitle} />
           </Link>
         </h1>
         <MainNav></MainNav>
