@@ -30,6 +30,7 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
       data.name = node.elements.briefing_name.value;
       data.url = node.elements.url.value;
       data.content = node.elements.main_body_copy.value;
+      data.content_short = node.elements.short_desc_.value;
       data.type = "briefing";
     }
 
@@ -46,7 +47,6 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
   const query = await graphql(`
     {
       allKontentItem {
@@ -83,6 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 url
                 type
                 content
+                content_short
               }
             }
           }
@@ -91,6 +92,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
+  const fs = require("fs");
+  var content = "unique_id\tname\turl_detail\tdescription_short\n";
+
   query.data.allKontentItem.edges.forEach(({ node }) => {
     if (node.fields && node.fields.url && node.id) {
       createPage({
@@ -98,6 +102,21 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`src/templates/content.js`),
         context: Object.assign({ id: node.id }, node.fields),
       });
+      if (node.fields.type == "briefing") {
+        content += node.id + "\t";
+        content += node.fields.name + "\t";
+        content += node.fields.url + "\t";
+        content += node.fields.content_short + "\t";
+        content += "\n";
+      }
     }
+  });
+
+  fs.writeFile("static/hawksearch/content.txt", content, err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    //file written successfully
   });
 };
