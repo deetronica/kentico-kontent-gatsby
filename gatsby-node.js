@@ -112,7 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   });
 
-  fs.appendFile("static/hawksearch/content.txt", content, err => {
+  fs.writeFile("static/hawksearch/content.txt", content, err => {
     if (err) {
       console.error(err);
       return;
