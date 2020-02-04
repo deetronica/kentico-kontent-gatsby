@@ -1,0 +1,4 @@
+unique_id	name	url_detail	description_short
+0c441c05-981c-5bb1-acd5-c287e0ab06fb	Briefing Name Hello World	briefing-name-hello-world	Briefing Short desc.	
+ad468196-2f5b-55e0-8f8f-f476fd08f17a	Briefing Within Briefing	briefing-within-briefing	Briefing within briefing short desc	
+089ce981-dddd-5dc6-bafd-b23ff545cf1f	Test Briefing	test-briefing	short desc here	
