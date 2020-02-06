@@ -28,6 +28,9 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
     // Briefing pages
     if (node.internal.type.includes("Briefing")) {
       data.name = node.elements.briefing_name.value;
+      data.author = node.elements.author.value;
+      data.date = node.elements.publish_date.value;
+      data.category = node.elements.content_category.value;
       data.url = node.elements.url.value;
       data.content = node.elements.main_body_copy.value;
       data.content_short = node.elements.short_desc_.value;
@@ -80,6 +83,13 @@ exports.createPages = async ({ graphql, actions }) => {
             ... on KontentItemBriefings {
               fields {
                 name
+                author {
+                  name
+                }
+                date(formatString: "MMMM DD, YYYY")
+                category {
+                  name
+                }
                 url
                 type
                 content
@@ -89,11 +99,39 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allKontentTaxonomyContentCategory {
+        nodes {
+          terms {
+            name
+          }
+        }
+      }
     }
   `);
 
+  //Hawksearch content writer
   const fs = require("fs");
   var content = "unique_id\tname\turl_detail\tdescription_short\n";
+  var hierarchy =
+    "hierarchy_id\thierarchy_name\tparent_hierarchy_id\tsort_order\n";
+  //hardcode category for now
+  hierarchy += "1\tCategory\t\t0\n";
+  var hierarchyArray = [];
+  var attributes = "unique_id\tkey\tvalue\n";
+
+  //hardcoded 1st node query loop for now. Can expand to other hierarchy items if needed
+  query.data.allKontentTaxonomyContentCategory.nodes[0].terms.map(
+    (term, index) => {
+      var hierarchyID = index + 1 + "0";
+      hierarchy += hierarchyID + "\t";
+      hierarchy += term.name + "\t";
+      hierarchy += "1\t";
+      hierarchy += index + 1;
+      hierarchy += "\n";
+      hierarchyArray.push({ id: hierarchyID, term: term.name });
+    }
+  );
+  console.log(hierarchyArray);
 
   query.data.allKontentItem.edges.forEach(({ node }) => {
     if (node.fields && node.fields.url && node.id) {
@@ -103,16 +141,66 @@ exports.createPages = async ({ graphql, actions }) => {
         context: Object.assign({ id: node.id }, node.fields),
       });
       if (node.fields.type == "briefing") {
+        //content.txt
         content += node.id + "\t";
         content += node.fields.name + "\t";
         content += node.fields.url + "\t";
-        content += node.fields.content_short + "\t";
+        content += node.fields.content_short;
         content += "\n";
+
+        //attributes.txt
+        //Date
+        if (node.fields.date) {
+          var briefingDate = node.fields.date;
+          var briefingMonth = briefingDate.substr(0, briefingDate.indexOf(" "));
+          var briefingYear = briefingDate.split(", ")[1];
+
+          attributes += node.id + "\t";
+          attributes += "Month\t";
+          attributes += briefingMonth + "\n";
+          attributes += node.id + "\t";
+          attributes += "Year\t";
+          attributes += briefingYear + "\n";
+        }
+        //Author
+        node.fields.author.map((author, index) => {
+          attributes += node.id + "\t";
+          attributes += "Author\t";
+          attributes += author.name + "\n";
+        });
+        //map to hierarchy ID
+        node.fields.category.map((category, index) => {
+          //attributes += category.name + "\n";
+          hierarchyArray.forEach(function(item) {
+            if (item.term == category.name) {
+              attributes += node.id + "\t";
+              attributes += "hierarchy_id\t";
+              attributes += item.id + "\n";
+            }
+          });
+        });
       }
     }
   });
 
+  //Write context.txt
   fs.writeFile("static/hawksearch/content.txt", content, err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    //file written successfully
+  });
+  //Write hierarchy.txt
+  fs.writeFile("static/hawksearch/hierarchy.txt", hierarchy, err => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    //file written successfully
+  });
+  //Write attributes.txt
+  fs.writeFile("static/hawksearch/attributes.txt", attributes, err => {
     if (err) {
       console.error(err);
       return;

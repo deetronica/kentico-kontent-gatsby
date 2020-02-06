@@ -1,4 +1,14 @@
 unique_id	name	url_detail	description_short
-0c441c05-981c-5bb1-acd5-c287e0ab06fb	Briefing Name Hello World	briefing-name-hello-world	Briefing Short desc.	
-ad468196-2f5b-55e0-8f8f-f476fd08f17a	Briefing Within Briefing	briefing-within-briefing	Briefing within briefing short desc	
-089ce981-dddd-5dc6-bafd-b23ff545cf1f	Test Briefing	test-briefing	short desc here	
+0c441c05-981c-5bb1-acd5-c287e0ab06fb	Briefing Name Hello World	briefing-name-hello-world	Briefing Short desc.
+79645f2d-702e-522c-8dfe-bd1e56a79758	Conventional Approaches	conventional-approaches	If you work in a large organization that publishes lots of content online, you may find it hard to keep everything in sync. Content teams in large organizations need to manage many details and often rely on many different tools to run their operations. Faced with this situation, everyone is eager for a fresh approach to managing all their content. Content as a Service, or “CaaS”, offers organizations a way to end the spiraling complexity of large-scale content operations so they can act strategically with their content.
+72d94012-e404-524e-beb7-4531c35b6d36	Dieters new test Briefing	dieters-new-test-briefing	Short description goes here to test out.
+40177dc5-242a-53e4-a795-b8cb9598dd0a	Future of CMS	future-of-cms	It’s not just web anymore. Companies need to publish their content to a much larger number of channels and provide the digital practitioner with easy-to-use tools to engage with customers. But how can you assemble services that are highly reusable and highly relevant?
+5843a403-29f1-5ad3-aecd-360808737b7e	Kentico + Hawk	kentico-hawk	We are excited to announce that Hawksearch is now an official search partner for Kentico Kontent. With a new integration now available and our certified partner status, now Kentico Kontent users can get all of the benefits of Hawksearch on their own sites.
+1a07b805-50fe-5528-b0b5-91a740b01ddf	Machine Learning	machine-learning	Machine Learning is a part of our modern day life. It powers our virtual assistants, and can be used to predict how long your commute home will take. 
+504a644d-d631-5406-a268-e2688aa8ecd5	Mobile Search	mobile-search	Search is an integral part of the mobile experience. Whether searching for restaurant reviews on Yelp, researching product prices while at a retail store, or Googling details on a celebrity to settle a debate amongst friends, people are constantly using their phones to find specific information. An on-site search engine that’s not designed with those users in mind, will fall flat.
+d8c8ceae-299c-566c-a8e6-abb92a297613	2020 Search	2020-search	We all know that search is already critically important, so how do we see that importance shifting and growing in 2020?
+dff73e62-0a44-5642-bb08-4ebf5ff65f0b	Setting Goals	setting-goals	A growing volume of material describes the technical details of content models—many teams get caught up in these technical details and fail to grasp the business value of their content model. 
+a96d857f-2d04-5e29-bf05-e73d1f923889	Structured Writing	structured-writing	Writers are embracing the benefits of structured writing. But are they getting the full benefits of structuring the content they create?
+156dc1f9-d431-55ca-aee5-93eb02769e68	Americaneagle.com and Hawk to put on Webinar	americaneagle-com-and-hawk-to-put-on-webinar	Short description goes here
+ad468196-2f5b-55e0-8f8f-f476fd08f17a	Briefing Within Briefing	briefing-within-briefing	Briefing within briefing short desc
+089ce981-dddd-5dc6-bafd-b23ff545cf1f	Test Briefing	test-briefing	short desc here
