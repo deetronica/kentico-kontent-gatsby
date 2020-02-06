@@ -1,0 +1,56 @@
+unique_id	key	value
+79645f2d-702e-522c-8dfe-bd1e56a79758	Month	February
+79645f2d-702e-522c-8dfe-bd1e56a79758	Year	2020
+79645f2d-702e-522c-8dfe-bd1e56a79758	Author	Jonathan Meyer
+79645f2d-702e-522c-8dfe-bd1e56a79758	hierarchy_id	40
+79645f2d-702e-522c-8dfe-bd1e56a79758	hierarchy_id	20
+72d94012-e404-524e-beb7-4531c35b6d36	hierarchy_id	10
+72d94012-e404-524e-beb7-4531c35b6d36	hierarchy_id	20
+72d94012-e404-524e-beb7-4531c35b6d36	hierarchy_id	50
+40177dc5-242a-53e4-a795-b8cb9598dd0a	Month	April
+40177dc5-242a-53e4-a795-b8cb9598dd0a	Year	2020
+40177dc5-242a-53e4-a795-b8cb9598dd0a	Author	Shreyas Kamath
+40177dc5-242a-53e4-a795-b8cb9598dd0a	hierarchy_id	60
+40177dc5-242a-53e4-a795-b8cb9598dd0a	hierarchy_id	10
+5843a403-29f1-5ad3-aecd-360808737b7e	Month	March
+5843a403-29f1-5ad3-aecd-360808737b7e	Year	2020
+5843a403-29f1-5ad3-aecd-360808737b7e	Author	Jonathan Meyer
+5843a403-29f1-5ad3-aecd-360808737b7e	Author	Shreyas Kamath
+5843a403-29f1-5ad3-aecd-360808737b7e	Author	Paul Nashawaty
+5843a403-29f1-5ad3-aecd-360808737b7e	hierarchy_id	50
+1a07b805-50fe-5528-b0b5-91a740b01ddf	Month	March
+1a07b805-50fe-5528-b0b5-91a740b01ddf	Year	2020
+1a07b805-50fe-5528-b0b5-91a740b01ddf	Author	Shreyas Kamath
+1a07b805-50fe-5528-b0b5-91a740b01ddf	Author	Paul Nashawaty
+1a07b805-50fe-5528-b0b5-91a740b01ddf	hierarchy_id	10
+504a644d-d631-5406-a268-e2688aa8ecd5	Month	February
+504a644d-d631-5406-a268-e2688aa8ecd5	Year	2020
+504a644d-d631-5406-a268-e2688aa8ecd5	Author	Jonathan Meyer
+504a644d-d631-5406-a268-e2688aa8ecd5	Author	Paul Nashawaty
+504a644d-d631-5406-a268-e2688aa8ecd5	Author	Dieter Hildebrand
+504a644d-d631-5406-a268-e2688aa8ecd5	hierarchy_id	60
+504a644d-d631-5406-a268-e2688aa8ecd5	hierarchy_id	70
+d8c8ceae-299c-566c-a8e6-abb92a297613	Month	March
+d8c8ceae-299c-566c-a8e6-abb92a297613	Year	2020
+d8c8ceae-299c-566c-a8e6-abb92a297613	Author	Paul Nashawaty
+d8c8ceae-299c-566c-a8e6-abb92a297613	Author	Jonathan Meyer
+d8c8ceae-299c-566c-a8e6-abb92a297613	Author	Wesley McChristian
+d8c8ceae-299c-566c-a8e6-abb92a297613	hierarchy_id	10
+d8c8ceae-299c-566c-a8e6-abb92a297613	hierarchy_id	20
+dff73e62-0a44-5642-bb08-4ebf5ff65f0b	Month	February
+dff73e62-0a44-5642-bb08-4ebf5ff65f0b	Year	2020
+dff73e62-0a44-5642-bb08-4ebf5ff65f0b	Author	Wesley McChristian
+dff73e62-0a44-5642-bb08-4ebf5ff65f0b	hierarchy_id	40
+dff73e62-0a44-5642-bb08-4ebf5ff65f0b	hierarchy_id	50
+a96d857f-2d04-5e29-bf05-e73d1f923889	Month	February
+a96d857f-2d04-5e29-bf05-e73d1f923889	Year	2020
+a96d857f-2d04-5e29-bf05-e73d1f923889	Author	Dieter Hildebrand
+a96d857f-2d04-5e29-bf05-e73d1f923889	hierarchy_id	70
+a96d857f-2d04-5e29-bf05-e73d1f923889	hierarchy_id	80
+a96d857f-2d04-5e29-bf05-e73d1f923889	hierarchy_id	10
+156dc1f9-d431-55ca-aee5-93eb02769e68	Month	February
+156dc1f9-d431-55ca-aee5-93eb02769e68	Year	2020
+156dc1f9-d431-55ca-aee5-93eb02769e68	Author	Wesley McChristian
+156dc1f9-d431-55ca-aee5-93eb02769e68	Author	Dieter Hildebrand
+156dc1f9-d431-55ca-aee5-93eb02769e68	hierarchy_id	10
+156dc1f9-d431-55ca-aee5-93eb02769e68	hierarchy_id	60
